@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('add', 'manage@addArticle');
 Route::post('add', 'manage@addArticle');
+Route::get('view/articles', 'manage@view');
+Route::get('article/read/{id}', 'manage@read');
