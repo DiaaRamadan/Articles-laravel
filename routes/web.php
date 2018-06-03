@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/view/articles', 'HomeController@index')->name('home');
 
 Route::get('add', 'manage@addArticle');
 Route::post('add', 'manage@addArticle');

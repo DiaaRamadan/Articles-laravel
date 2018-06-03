@@ -9,6 +9,11 @@ use App\Comment;
 class manage extends Controller
 {
     // Function to add Article
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addArticle(Request $request) {
 
         if($request->isMethod('post')){
