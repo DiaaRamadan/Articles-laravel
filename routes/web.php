@@ -26,3 +26,7 @@ Route::get('view/articles', 'manage@view');
 Route::get('article/read/{id}', 'manage@read');
 Route::post('article/read/{id}', 'manage@read');
 
+Route::get('delete/{id}', 'manage@delete');
+Route::get('comment/{id}/edit', 'manage@editComment');
+Route::post('comment/{id}/edit', 'manage@editComment');
+

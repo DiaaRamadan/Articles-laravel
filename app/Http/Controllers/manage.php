@@ -13,6 +13,11 @@ class manage extends Controller
 
         if($request->isMethod('post')){
 
+            $this->validate($request,[
+                'title'=>'required|min:5|max:50',
+                'body'=>'required|min:20'
+            ]);
+
             $article = new Article;
             $article->title = $request->input('title'); 
             $article->body = $request->input('body');
@@ -36,6 +41,10 @@ class manage extends Controller
 
      public function read(Request $request,$id){
         if($request->isMethod('post')){
+            $this->validate($request, [
+                'comment'=>'required|min:4',
+
+            ]);
 
             $comment = new Comment; 
             $comment->comment = $request->input('comment');
@@ -46,4 +55,26 @@ class manage extends Controller
         $arr=array('thearticle' => $theArticle);
         return view('manage.read', $arr);
      }
+
+     public function delete($id){
+         $comment = Comment::find($id);
+         $comment->delete();
+        return redirect()->back();
+     }
+
+    /*public function editComment(Request $request, $id){
+        $this->validate($request, [
+            'comment'=>'required|min:4'
+        ]);
+        $comment = Comment::find($id);
+        $arr = array('comment'=>$comment);
+        if($request->isMethod('post')){
+            $comment->comment = $request->input('comment');
+            $comment->save();
+            return redirect('view');
+
+        }else{
+            return view('editComment', $arr);
+        }
+    }*/
 }

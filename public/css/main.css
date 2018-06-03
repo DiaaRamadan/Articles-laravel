@@ -1,0 +1,23 @@
+a,
+a:hover{
+    text-decoration: none;
+    color: #776c6c;
+}
+
+h1{
+    color: #5f5656;
+}
+table tr:first-child td{
+    background-color: #333;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 7px;
+    border: 1px solid #FFF;
+}
+.comments p {
+    color: #5f5656;
+    margin-bottom: 50px;
+}
+.comments span {
+    float: right;
+}
