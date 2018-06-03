@@ -9,10 +9,10 @@ class Article extends Model
     //
     public $table ='articles';
     public function comments(){
-        $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment');
     }
 
     public function users(){
-        $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }

@@ -9,6 +9,6 @@ class Comment extends Model
     //
     public $table='comments';
     public function article(){
-        $this->belongsTo('App\Article');
+        return $this->belongsTo('App\Article');
     }
 }

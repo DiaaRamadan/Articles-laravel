@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Article;
+use App\Comment;
 
 class manage extends Controller
 {
@@ -33,7 +34,14 @@ class manage extends Controller
 
      // Function to show the article content
 
-     public function read($id){
+     public function read(Request $request,$id){
+        if($request->isMethod('post')){
+
+            $comment = new Comment; 
+            $comment->comment = $request->input('comment');
+            $comment->article_id = $id;
+            $comment->save();
+        }
         $theArticle = Article::find($id);
         $arr=array('thearticle' => $theArticle);
         return view('manage.read', $arr);

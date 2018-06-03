@@ -24,3 +24,5 @@ Route::get('add', 'manage@addArticle');
 Route::post('add', 'manage@addArticle');
 Route::get('view/articles', 'manage@view');
 Route::get('article/read/{id}', 'manage@read');
+Route::post('article/read/{id}', 'manage@read');
+
